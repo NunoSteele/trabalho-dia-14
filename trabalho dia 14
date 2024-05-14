@@ -1,0 +1,70 @@
+f = open('meu_arquivo.txt', 'w')
+f.write("Teste de número 1\n") # '\n' gera uma quebra de linha
+f.write("teste de número 2")
+f = open('novo_arquivo.txt', 'w')
+f.write('Novos arquivos\nnovos textos')
+f.close()
+f = open('novo_arquivo.txt', 'r+')
+conteudo = f.read() # conteudo = 'Novos arquivos\nnovos textos'
+f.seek(0) # é preciso voltar ao início para ler outra vez
+print(f.read())
+f.write('\nNunca é demais')
+f.close()
+f = open('novo_arquivo.txt', 'r')
+print(f.read())
+f = open("novo_arquivo.txt", "r")
+for linha in f:
+ print(linha)
+f.seek(0)
+for linha in f:
+ print(linha, end='')
+ 
+ 
+ def salvar_nome_em_arquivo():
+    nome = input("Informe seu nome: ")
+    with open("nome_usuario.txt", "w") as arquivo:
+        arquivo.write(nome)
+    print("Nome salvo com sucesso!")
+    
+    def imprimir_conteudo_arquivo():ArithmeticError
+    nome_arquivo = input("Informe o nome do arquivo de texto: ")
+    try:
+        with open(nome_arquivo, "r") as arquivo:
+            conteudo = arquivo.read()
+        print("Conteúdo do arquivo:")
+        print(conteudo)
+    except FileNotFoundError:
+        print("Arquivo não encontrado. Por favor, tente novamente com um nome de arquivo válido.")
+        
+        def copiar_conteudo_arquivo():
+    
+            nome_arquivo_origem = input("Informe o nome do arquivo de origem: ")
+    nome_arquivo_destino = input("Informe o nome do novo arquivo: ")
+    try:
+        with open(nome_arquivo_origem, "r") as arquivo_origem:
+            conteudo = arquivo_origem.read()
+        with open(nome_arquivo_destino, "w") as arquivo_destino:
+            arquivo_destino.write(conteudo)
+        print(f"Conteúdo copiado para {nome_arquivo_destino} com sucesso!")
+    except FileNotFoundError:
+        print("Arquivo de origem não encontrado. Por favor, tente novamente com um nome de arquivo válido.")
+        
+        def encontrar_nome_por_numero():
+    
+            nome_arquivo = input("Informe o nome do arquivo: ")
+    try:
+        with open(nome_arquivo, "r") as arquivo:
+            linhas = arquivo.readlines()
+        
+        numero = int(input("Informe um número: "))
+        
+        if 1 <= numero <= len(linhas):
+            nome = linhas[numero - 1].strip()
+            print(f"O nome correspondente ao número {numero} é: {nome}")
+        else:
+            print("Número fora do intervalo. Por favor, informe um número válido.")
+    except FileNotFoundError:
+        print("Arquivo não encontrado. Por favor, tente novamente com um nome de arquivo válido.")
+    except ValueError:
+        print("Entrada inválida. Por favor, informe um número inteiro.")
+        
